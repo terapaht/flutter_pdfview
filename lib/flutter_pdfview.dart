@@ -290,15 +290,15 @@ class PDFViewController {
     return isSet;
   }
 
-  Future<int> getPageWidth(int page) async {
-    final int pageWidth = await _channel.invokeMethod('getPageWidth', <String, dynamic>{
+  Future<double> getPageWidth(int page) async {
+    final double pageWidth = await _channel.invokeMethod('getPageWidth', <String, dynamic>{
       'page': page,
     });
     return pageWidth;
   }
 
-  Future<int> getPageHeight(int page) async {
-    final int pageHeight = await _channel.invokeMethod('getPageHeight', <String, dynamic>{
+  Future<double> getPageHeight(int page) async {
+    final double pageHeight = await _channel.invokeMethod('getPageHeight', <String, dynamic>{
       'page': page,
     });
     return pageHeight;
