@@ -103,6 +103,12 @@ public class FlutterPDFView implements PlatformView, MethodCallHandler {
             case "currentPage":
                 getCurrentPage(result);
                 break;
+            case "getPageWidth":
+                getPageWidth(result);
+                break;
+            case "getPageHeight":
+                getPageHeight(result);
+                break;
             case "setPage":
                 setPage(methodCall, result);
                 break;
@@ -121,6 +127,14 @@ public class FlutterPDFView implements PlatformView, MethodCallHandler {
 
     void getCurrentPage(Result result) {
         result.success(pdfView.getCurrentPage());
+    }
+
+    void getPageWidth(MethodCall call, Result result) {
+        result.success(pdfView.getPageSize(call.argument("page")).getWidth());
+    }
+
+    void getPageHeight(MethodCall call, Result result) {
+        result.success(pdfView.getPageSize(call.argument("page")).getHeight());
     }
 
     void setPage(MethodCall call, Result result) {
